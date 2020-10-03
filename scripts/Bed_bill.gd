@@ -1,7 +1,8 @@
 extends RichTextLabel
 
-func _ready():
+func show_bill():
 	clear();
+	append_bbcode("[shake rate=5 level=10]");
 	add_text("Your Bill:");
 	newline();
 	push_table(2);
@@ -37,5 +38,16 @@ func _ready():
 	add_text("\tTotal");
 	pop();
 	pop();
-		
-	
+	pop();
+	clear_day();
+	$"../../Control".play("Bill_flyin");
+
+func _input(event):
+	if Input.is_action_pressed("ui_down"):
+		$"../../Control".play_backwards("Bill_flyin");
+
+func clear_day():
+	for i in $"/root/Globals".Bill:
+		$"/root/Globals".Money += i[0];
+	$"/root/Globals".Bill = []
+	$"/root/Globals".Beard += 1;
