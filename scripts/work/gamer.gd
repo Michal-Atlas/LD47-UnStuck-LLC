@@ -46,8 +46,8 @@ func _on_Button_pressed():
 		emit_signal("recording_on")
 		get_node("../Button").text = "Stop"
 	else:
-		rec_length = 0
 		get_node("../Button").text = "Record"
 		recording = false
 		emit_signal("recording_off")
 		self.cash_out(rec_length)
+		rec_length = 0
