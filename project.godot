@@ -16,7 +16,13 @@ _global_script_class_icons={
 [application]
 
 config/name="UnStuck-LLC"
+run/main_scene="res://door.tscn"
 config/icon="res://icon.png"
+
+[autoload]
+
+Player="*res://Player.tscn"
+Globals="*res://scripts/Globals.gd"
 
 [rendering]
 
