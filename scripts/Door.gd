@@ -1,18 +1,17 @@
-extends Area2D
+extends Node
 
-export var NewScenePath = "";
+export var NewScenePath : String;
 export var TargetCoords = Vector2(0,0);
-func _ready():
-	pass
+onready var player = get_tree().get_nodes_in_group("Player")[0];
 
 func _input(event):
-	if Input.is_action_just_pressed("ui_up") && $"/root/Player" in get_overlapping_bodies():
-		$"/root/Player".position.x = TargetCoords.x;
-		$"/root/Player".position.y = TargetCoords.y;
+	if Input.is_action_just_pressed("ui_up") && player in $Area2D.get_overlapping_bodies():
+		player.position.x = TargetCoords.x;
+		player.position.y = TargetCoords.y;
 		get_tree().change_scene(NewScenePath);
 		
 func _process(delta):
-	if get_tree().get_root().get_node("Player") in get_overlapping_bodies():
-		get_node("../ButtonLabel").visible = true;
+	if player in $Area2D.get_overlapping_bodies():
+		$ButtonLabel.visible = true;
 	else:
-		get_node("../ButtonLabel").visible = false;
+		$ButtonLabel.visible = false;
