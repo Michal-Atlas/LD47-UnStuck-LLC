@@ -35,8 +35,8 @@ position = Vector2( 896, 512 )
 NewScenePath = "res://WorkGame.tscn"
 
 [node name="Player" parent="." instance=ExtResource( 4 )]
-position = Vector2( 126, 552 )
+position = Vector2( 126, 550 )
 z_index = 2
 
 [node name="dialoger" parent="." instance=ExtResource( 5 )]
-position = Vector2( 640, 544 )
+position = Vector2( 640, 537 )
