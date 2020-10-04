@@ -22,7 +22,7 @@ scale = Vector2( 4.61429, 4.61429 )
 texture = ExtResource( 1 )
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
-position = Vector2( 190, 512 )
+position = Vector2( 2100, 512 )
 scale = Vector2( 3.5, 3.5 )
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
@@ -47,9 +47,10 @@ scale = Vector2( 2, 2 )
 [node name="Door_Right" parent="." instance=ExtResource( 3 )]
 position = Vector2( 1800, 334 )
 scale = Vector2( 2, 2 )
+NewScenePath = "res://HomeScenes/LivingRoom.tscn"
 
 [node name="Area2D" parent="." instance=ExtResource( 4 )]
-position = Vector2( 0, 576 )
+position = Vector2( 2304, 576 )
 scale = Vector2( 1.7, 1.7 )
 NewScenePath = "res://TravelMenu.tscn"
 
