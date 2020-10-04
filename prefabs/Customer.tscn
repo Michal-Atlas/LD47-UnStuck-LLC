@@ -1,0 +1,26 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://textures/sprites/randoms.tres" type="SpriteFrames" id=1]
+
+[sub_resource type="GDScript" id=1]
+script/source = "extends Node2D
+
+var anims = [\"def0\", \"def1\", \"def2\", \"def3\"]
+
+func _ready():
+	randomize();
+	$AnimatedSprite.animation = anims[randi()%4];
+	position.x = randi()%896-640;
+	$AnimatedSprite.flip_h = true if randi()%3==1 else false;
+"
+
+[node name="Customer" type="Node2D"]
+script = SubResource( 1 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+position = Vector2( 1.90735e-06, -1.90735e-06 )
+scale = Vector2( 2, 2 )
+frames = ExtResource( 1 )
+animation = "def0"
+frame = 1
+playing = true
