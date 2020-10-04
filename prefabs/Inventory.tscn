@@ -1,0 +1,121 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://textures/icons/beans.png" type="Texture" id=1]
+[ext_resource path="res://scripts/Inventory.gd" type="Script" id=2]
+[ext_resource path="res://textures/icons/beer.png" type="Texture" id=3]
+
+[sub_resource type="Animation" id=1]
+resource_name = "InventSlideIn"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("AnimationPlayer/ColorRect:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( -2, -2 ),
+"update": 0,
+"values": [ Vector2( 64, 704 ), Vector2( 64, 64 ) ]
+}
+
+[node name="CanvasLayer" type="CanvasLayer"]
+
+[node name="Inventory" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 128.0
+margin_top = 64.0
+margin_right = -128.0
+margin_bottom = -88.0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Inventory"]
+anims/InventSlideIn = SubResource( 1 )
+
+[node name="ColorRect" type="ColorRect" parent="Inventory/AnimationPlayer"]
+anchor_left = 0.062
+anchor_top = 0.107
+anchor_right = 0.937
+anchor_bottom = 0.853
+margin_left = 0.512001
+margin_top = 639.8
+margin_right = 0.511963
+margin_bottom = 640.199
+color = Color( 0, 0, 0, 0.392157 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="ItemList" type="ItemList" parent="Inventory/AnimationPlayer/ColorRect"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_bottom = -4.0
+select_mode = 1
+max_columns = 4
+same_column_width = true
+icon_mode = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Beer" type="ColorRect" parent="Inventory/AnimationPlayer/ColorRect/ItemList"]
+anchor_left = 0.083
+anchor_top = 0.135
+anchor_right = 0.454
+anchor_bottom = 0.856
+margin_left = 0.255997
+margin_top = 0.0599976
+margin_right = 0.327972
+margin_bottom = -0.0640259
+color = Color( 0, 0, 0, 0.0784314 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="Inventory/AnimationPlayer/ColorRect/ItemList/Beer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 14.0
+margin_top = 14.0
+margin_right = -14.0
+margin_bottom = -14.0
+texture = ExtResource( 3 )
+expand = true
+stretch_mode = 6
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Food" type="ColorRect" parent="Inventory/AnimationPlayer/ColorRect/ItemList"]
+anchor_left = 0.547
+anchor_top = 0.135
+anchor_right = 0.917
+anchor_bottom = 0.856
+margin_left = -0.0959778
+margin_top = 0.0600014
+margin_right = 0.743958
+margin_bottom = -0.0640259
+color = Color( 0, 0, 0, 0.0784314 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="Inventory/AnimationPlayer/ColorRect/ItemList/Food"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 14.0
+margin_top = 14.0
+margin_right = -14.0
+margin_bottom = -14.0
+texture = ExtResource( 1 )
+expand = true
+stretch_mode = 6
+__meta__ = {
+"_edit_use_anchors_": false
+}
