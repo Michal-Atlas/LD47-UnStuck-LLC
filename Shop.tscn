@@ -1,0 +1,82 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://prefabs/Shop_Aisle.tscn" type="PackedScene" id=1]
+[ext_resource path="res://prefabs/Shop_Beers.tscn" type="PackedScene" id=2]
+[ext_resource path="res://prefabs/Player.tscn" type="PackedScene" id=3]
+[ext_resource path="res://textures/sprites/shop/shop_background.png" type="Texture" id=4]
+[ext_resource path="res://scripts/Shop.gd" type="Script" id=29]
+
+[node name="Shop" type="Node2D"]
+script = ExtResource( 29 )
+
+[node name="Aisle" parent="." instance=ExtResource( 1 )]
+
+[node name="Shop_Shelf" parent="Aisle/Shelves" index="0"]
+front_row = true
+
+[node name="Shop_Shelf2" parent="Aisle/Shelves" index="1"]
+front_row = true
+
+[node name="Shop_Shelf3" parent="Aisle/Shelves" index="2"]
+front_row = true
+
+[node name="Shop_Shelf4" parent="Aisle/Shelves" index="3"]
+front_row = true
+
+[node name="Shop_Shelf5" parent="Aisle/Shelves" index="4"]
+front_row = true
+
+[node name="Player" parent="." instance=ExtResource( 3 )]
+position = Vector2( 960, 552 )
+z_index = 5
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+position = Vector2( 0, 12 )
+scale = Vector2( 0.5, 0.5 )
+current = true
+limit_left = -1088
+limit_top = 0
+limit_right = 1025
+limit_bottom = 600
+limit_smoothed = true
+smoothing_enabled = true
+smoothing_speed = 2.0
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer4" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2( 0.7, 1 )
+
+[node name="Background" type="Sprite" parent="ParallaxBackground/ParallaxLayer4"]
+position = Vector2( -43.4476, 300.202 )
+scale = Vector2( 1.85578, 1.85578 )
+texture = ExtResource( 4 )
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2( 0.85, 1 )
+
+[node name="Aisle" parent="ParallaxBackground/ParallaxLayer3" instance=ExtResource( 1 )]
+modulate = Color( 0.65098, 0.65098, 0.65098, 1 )
+position = Vector2( 0, -90 )
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2( 0.9, 1 )
+
+[node name="Aisle" parent="ParallaxBackground/ParallaxLayer2" instance=ExtResource( 1 )]
+modulate = Color( 0.760784, 0.760784, 0.760784, 1 )
+position = Vector2( 0, -60 )
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2( 0.95, 1 )
+
+[node name="Aisle" parent="ParallaxBackground/ParallaxLayer" instance=ExtResource( 1 )]
+modulate = Color( 0.886275, 0.886275, 0.886275, 1 )
+position = Vector2( 0, -30 )
+
+[node name="Shop_Beers" parent="." instance=ExtResource( 2 )]
+position = Vector2( -1013, 487 )
+
+[node name="Shop_Beers2" parent="." instance=ExtResource( 2 )]
+position = Vector2( -829, 487 )
+
+[editable path="Aisle"]

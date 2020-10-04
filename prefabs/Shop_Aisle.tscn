@@ -1,0 +1,53 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://prefabs/Shop_Shelf.tscn" type="PackedScene" id=1]
+[ext_resource path="res://textures/sprites/shop/cashier_idle2.png" type="Texture" id=2]
+[ext_resource path="res://textures/sprites/shop/cashier_idle1.png" type="Texture" id=3]
+[ext_resource path="res://textures/sprites/shop/kasa.png" type="Texture" id=4]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 3 ), ExtResource( 2 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 166.643, 64 )
+
+[node name="Aisle" type="Node2D"]
+
+[node name="Cashier" type="Area2D" parent="."]
+position = Vector2( 576, 512 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Cashier"]
+position = Vector2( 32, -12 )
+scale = Vector2( 1.78, 1.78 )
+frames = SubResource( 1 )
+playing = true
+
+[node name="Sprite" type="Sprite" parent="Cashier"]
+scale = Vector2( 2, 2 )
+texture = ExtResource( 4 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Cashier"]
+position = Vector2( 6.60712, 25.4846 )
+shape = SubResource( 2 )
+
+[node name="Shelves" type="Node2D" parent="."]
+
+[node name="Shop_Shelf" parent="Shelves" instance=ExtResource( 1 )]
+position = Vector2( 200, 600 )
+
+[node name="Shop_Shelf2" parent="Shelves" instance=ExtResource( 1 )]
+position = Vector2( 0, 600 )
+
+[node name="Shop_Shelf3" parent="Shelves" instance=ExtResource( 1 )]
+position = Vector2( -200, 600 )
+
+[node name="Shop_Shelf4" parent="Shelves" instance=ExtResource( 1 )]
+position = Vector2( -400, 600 )
+
+[node name="Shop_Shelf5" parent="Shelves" instance=ExtResource( 1 )]
+position = Vector2( -600, 600 )

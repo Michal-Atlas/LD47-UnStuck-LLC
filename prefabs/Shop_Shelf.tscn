@@ -1,0 +1,61 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://textures/sprites/shop/shop_shelf.png" type="Texture" id=1]
+[ext_resource path="res://textures/sprites/shop/shop_shelf2.png" type="Texture" id=2]
+[ext_resource path="res://textures/sprites/shop/shop_shelf3.png" type="Texture" id=3]
+[ext_resource path="res://textures/icons/w.png" type="Texture" id=4]
+[ext_resource path="res://textures/sprites/shop/shop_shelf_with_beans.png" type="Texture" id=5]
+
+[sub_resource type="GDScript" id=4]
+script/source = "extends Area2D
+
+onready var player = get_tree().get_nodes_in_group(\"Player\")[0];
+export var front_row = false;
+
+func _ready():
+	randomize();
+	$AnimatedSprite.frame = randi()%3+1;
+
+func _process(_delta):
+	if front_row:
+		if player in get_overlapping_bodies() && $AnimatedSprite.frame == 1:
+			$WLabel.visible = true;
+		else:
+			$WLabel.visible = false;
+func _input(event):
+	if Input.is_action_just_pressed(\"ui_up\") && $WLabel.visible && $AnimatedSprite.frame == 1:
+		$AnimatedSprite.frame = 0;
+		$\"/root/Globals\".Money -= 4;
+		$\"/root/Globals\".Bill += [-4, \"Food\"];
+		$\"/root/Globals\".Food = true;
+
+"
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 85.0328, 64 )
+
+[sub_resource type="SpriteFrames" id=3]
+animations = [ {
+"frames": [ ExtResource( 1 ), ExtResource( 5 ), ExtResource( 2 ), ExtResource( 3 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[node name="Shop_Shelf" type="Area2D"]
+script = SubResource( 4 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0, -64 )
+shape = SubResource( 2 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+position = Vector2( 0, -94 )
+scale = Vector2( 2, 2 )
+frames = SubResource( 3 )
+
+[node name="WLabel" type="Sprite" parent="."]
+visible = false
+position = Vector2( 2.38419e-07, -256 )
+scale = Vector2( 2.95988, 2.95988 )
+texture = ExtResource( 4 )
