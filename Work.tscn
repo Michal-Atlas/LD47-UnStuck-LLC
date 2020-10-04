@@ -1,0 +1,42 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://prefabs/Door.tscn" type="PackedScene" id=1]
+[ext_resource path="res://textures/sprites/Work/workdesk_background.png" type="Texture" id=2]
+[ext_resource path="res://prefabs/Door_Side.tscn" type="PackedScene" id=3]
+[ext_resource path="res://prefabs/Player.tscn" type="PackedScene" id=4]
+[ext_resource path="res://prefabs/Dialoguer_Work.tscn" type="PackedScene" id=5]
+
+[sub_resource type="GDScript" id=1]
+script/source = "extends Node2D
+
+
+func _ready():
+	if $\"/root/Globals\".WorkedToday:
+		$Area2D2.Enabled = false;
+		$Player.position.x = 896;
+		$dialoger.paused = true;
+		$\"/root/Quester\".set_to(2);
+"
+
+[node name="Node2D" type="Node2D"]
+script = SubResource( 1 )
+
+[node name="Background" type="Sprite" parent="."]
+position = Vector2( 512, 299 )
+scale = Vector2( 2.28472, 2.28472 )
+texture = ExtResource( 2 )
+
+[node name="Area2D" parent="." instance=ExtResource( 3 )]
+position = Vector2( 0, 576 )
+NewScenePath = "res://TravelMenu.tscn"
+
+[node name="Area2D2" parent="." instance=ExtResource( 1 )]
+position = Vector2( 896, 512 )
+NewScenePath = "res://WorkGame.tscn"
+
+[node name="Player" parent="." instance=ExtResource( 4 )]
+position = Vector2( 126, 552 )
+z_index = 2
+
+[node name="dialoger" parent="." instance=ExtResource( 5 )]
+position = Vector2( 640, 544 )
