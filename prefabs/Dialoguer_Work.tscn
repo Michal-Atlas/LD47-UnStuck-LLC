@@ -2,7 +2,7 @@
 
 [ext_resource path="res://scripts/work/dialoger.gd" type="Script" id=1]
 [ext_resource path="res://textures/sprites/Work/boss_1.png" type="Texture" id=2]
-[ext_resource path="res://fonts/Minimal5x7.tres" type="DynamicFont" id=3]
+[ext_resource path="res://fonts/Minimal5x7S36.tres" type="DynamicFont" id=3]
 [ext_resource path="res://textures/sprites/Work/boss.png" type="Texture" id=4]
 
 [sub_resource type="SpriteFrames" id=1]
@@ -53,6 +53,7 @@ __meta__ = {
 position = Vector2( 1.90735e-06, -1.90735e-06 )
 scale = Vector2( 2.56, 2.56 )
 frames = SubResource( 1 )
+frame = 1
 playing = true
 [connection signal="timeout" from="dialog_timer" to="." method="_on_dialog_timer_timeout"]
 [connection signal="timeout" from="boss_dialog_timer" to="." method="_on_boss_dialog_timer_timeout"]
