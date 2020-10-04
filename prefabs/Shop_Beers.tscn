@@ -29,7 +29,7 @@
 [ext_resource path="res://textures/icons/w.png" type="Texture" id=27]
 [ext_resource path="res://textures/icons/beer.png" type="Texture" id=28]
 
-[sub_resource type="GDScript" id=3]
+[sub_resource type="GDScript" id=1]
 script/source = "extends Area2D
 
 onready var player = get_tree().get_nodes_in_group(\"Player\")[0];
@@ -50,23 +50,23 @@ func _process(delta):
 		$WLabel.visible = false;
 "
 
-[sub_resource type="RectangleShape2D" id=4]
+[sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 29.1037, 42.4746 )
 
-[sub_resource type="SpriteFrames" id=2]
+[sub_resource type="SpriteFrames" id=3]
 animations = [ {
 "frames": [ ExtResource( 19 ), ExtResource( 12 ), ExtResource( 14 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 20 ), ExtResource( 17 ), ExtResource( 16 ), ExtResource( 1 ), ExtResource( 7 ), ExtResource( 13 ), ExtResource( 10 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 2 ), ExtResource( 25 ), ExtResource( 24 ), ExtResource( 15 ), ExtResource( 22 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 11 ), ExtResource( 21 ), ExtResource( 18 ), ExtResource( 23 ) ],
 "loop": false,
 "name": "default",
-"speed": 10.0
+"speed": 20.0
 } ]
 
 [node name="Doors" type="Area2D"]
 scale = Vector2( 2.53704, 2.53704 )
-script = SubResource( 3 )
+script = SubResource( 1 )
 
 [node name="DoorCollision" type="CollisionShape2D" parent="."]
-shape = SubResource( 4 )
+shape = SubResource( 2 )
 
 [node name="Shelf_Sprite" type="Sprite" parent="."]
 position = Vector2( -3.54744, -0.39416 )
@@ -79,7 +79,7 @@ texture = ExtResource( 28 )
 [node name="DoorSprite" type="AnimatedSprite" parent="."]
 position = Vector2( -3.54744, -1.57664 )
 scale = Vector2( 0.918215, 0.918215 )
-frames = SubResource( 2 )
+frames = SubResource( 3 )
 
 [node name="WLabel" type="Sprite" parent="."]
 visible = false

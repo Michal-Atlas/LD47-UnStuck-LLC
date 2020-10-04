@@ -4,7 +4,7 @@
 [ext_resource path="res://textures/sprites/cassette.tres" type="SpriteFrames" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 32, 24 )
+extents = Vector2( 17.8686, 14.4266 )
 
 [node name="Player" type="KinematicBody2D" groups=[
 "Player",
@@ -17,7 +17,7 @@ shape = SubResource( 1 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = ExtResource( 2 )
-animation = "idle"
+animation = "run"
 frame = 1
 playing = true
 

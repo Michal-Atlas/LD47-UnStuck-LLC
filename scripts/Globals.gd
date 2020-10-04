@@ -12,6 +12,10 @@ var BeerDays = 0;
 var PlayerSpawnPointX = 0;
 var WorkedToday = false;
 
+func end_day():
+	if len($"/root/Globals".Bill)==0 and not $"/root/Globals".WorkedToday:
+		$"/root/Quester/Control/AnimationPlayer/Spinner/AnimatedSprite3".frame = 2;
+	clear_day();
 func clear_day():
 	for i in $"/root/Globals".Bill:
 		$"/root/Globals".Money += i[0];
@@ -31,3 +35,4 @@ func clear_day():
 	
 	Food = false;
 	Beer = false;
+	Time += 1;

@@ -4,7 +4,7 @@
 [ext_resource path="res://textures/icons/w_arr.png" type="Texture" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 192, 32 )
+extents = Vector2( 64, 32 )
 
 [node name="Door_Side" type="Area2D"]
 script = ExtResource( 1 )

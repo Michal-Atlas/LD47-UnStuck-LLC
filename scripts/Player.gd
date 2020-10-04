@@ -3,7 +3,8 @@ extends KinematicBody2D
 const UP = Vector2(0,-1);
 var movement = Vector2(0,0);
 
-const SPEED = 300;
+const SPEED = 435; # Keep this a multiple of WindDown
+const WINDDOWN = 15;
 
 func _ready():
 	pass
@@ -13,7 +14,7 @@ func _physics_process(_delta):
 		movement.x = SPEED;
 	elif Input.is_action_pressed("ui_left") && $LeftVisibilityNotifier2D.is_on_screen():
 		movement.x = -SPEED;
-	movement.x -= 5*sign(movement.x);
+	movement.x -= WINDDOWN*sign(movement.x);
 	
 	if sign(movement.x) != 0:
 		$AnimatedSprite.flip_h = true if sign(movement.x)==1 else false;
