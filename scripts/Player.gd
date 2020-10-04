@@ -9,9 +9,9 @@ func _ready():
 	pass
 
 func _physics_process(_delta):
-	if Input.is_action_pressed("ui_right"):
+	if Input.is_action_pressed("ui_right") && $RightVisibilityNotifier2D.is_on_screen():
 		movement.x = SPEED;
-	elif Input.is_action_pressed("ui_left"):
+	elif Input.is_action_pressed("ui_left") && $LeftVisibilityNotifier2D.is_on_screen():
 		movement.x = -SPEED;
 	movement.x -= 5*sign(movement.x);
 	
