@@ -4,7 +4,7 @@
 
 [resource]
 resource_name = "Minimal5x7"
-size = 80
+size = 36
 outline_size = 1
 outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 1 )
