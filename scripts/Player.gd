@@ -3,7 +3,7 @@ extends KinematicBody2D
 const UP = Vector2(0,-1);
 var movement = Vector2(0,0);
 
-const SPEED = 200;
+const SPEED = 300;
 
 func _ready():
 	pass
