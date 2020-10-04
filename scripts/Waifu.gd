@@ -1,4 +1,4 @@
-extends KinematicBody2D
+extends Node2D
 
 onready var player = get_tree().get_nodes_in_group("Player")[0];
 
