@@ -6,7 +6,6 @@
 
 [sub_resource type="Animation" id=1]
 resource_name = "InventSlideIn"
-length = 0.5
 tracks/0/type = "value"
 tracks/0/path = NodePath("AnimationPlayer/ColorRect:rect_position")
 tracks/0/interp = 1
@@ -14,30 +13,19 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.5 ),
+"times": PoolRealArray( 0, 1 ),
 "transitions": PoolRealArray( -2, -2 ),
 "update": 0,
 "values": [ Vector2( 64, 704 ), Vector2( 64, 64 ) ]
 }
 
 [node name="CanvasLayer" type="CanvasLayer"]
-
-[node name="Inventory" type="Control" parent="."]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 128.0
-margin_top = 64.0
-margin_right = -128.0
-margin_bottom = -88.0
 script = ExtResource( 2 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Inventory"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/InventSlideIn = SubResource( 1 )
 
-[node name="ColorRect" type="ColorRect" parent="Inventory/AnimationPlayer"]
+[node name="ColorRect" type="ColorRect" parent="AnimationPlayer"]
 anchor_left = 0.062
 anchor_top = 0.107
 anchor_right = 0.937
@@ -45,14 +33,14 @@ anchor_bottom = 0.853
 margin_left = 0.512001
 margin_top = 639.8
 margin_right = 0.511963
-margin_bottom = 640.199
+margin_bottom = 640.198
 color = Color( 0, 0, 0, 0.392157 )
 __meta__ = {
 "_edit_group_": true,
 "_edit_use_anchors_": false
 }
 
-[node name="ItemList" type="ItemList" parent="Inventory/AnimationPlayer/ColorRect"]
+[node name="ItemList" type="ItemList" parent="AnimationPlayer/ColorRect"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_bottom = -4.0
@@ -64,7 +52,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Beer" type="ColorRect" parent="Inventory/AnimationPlayer/ColorRect/ItemList"]
+[node name="Beer" type="ColorRect" parent="AnimationPlayer/ColorRect/ItemList"]
 anchor_left = 0.083
 anchor_top = 0.135
 anchor_right = 0.454
@@ -78,7 +66,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="TextureRect" type="TextureRect" parent="Inventory/AnimationPlayer/ColorRect/ItemList/Beer"]
+[node name="TextureRect" type="TextureRect" parent="AnimationPlayer/ColorRect/ItemList/Beer"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 14.0
@@ -92,7 +80,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Food" type="ColorRect" parent="Inventory/AnimationPlayer/ColorRect/ItemList"]
+[node name="Food" type="ColorRect" parent="AnimationPlayer/ColorRect/ItemList"]
 anchor_left = 0.547
 anchor_top = 0.135
 anchor_right = 0.917
@@ -106,7 +94,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="TextureRect" type="TextureRect" parent="Inventory/AnimationPlayer/ColorRect/ItemList/Food"]
+[node name="TextureRect" type="TextureRect" parent="AnimationPlayer/ColorRect/ItemList/Food"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 14.0
