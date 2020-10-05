@@ -70,6 +70,7 @@ position = Vector2( 855.736, 252.517 )
 scale = Vector2( 6.34568, 6.34568 )
 frames = SubResource( 2 )
 animation = "def2"
+frame = 1
 playing = true
 script = SubResource( 3 )
 
@@ -130,7 +131,7 @@ __meta__ = {
 }
 
 [node name="Transition_Timer" type="Timer" parent="gamer"]
-wait_time = 6.0
+wait_time = 4.0
 one_shot = true
 
 [node name="Timer" type="Timer" parent="."]
