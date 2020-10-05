@@ -7,27 +7,37 @@ var Beard = 2;
 var Beer = false;
 var Food = false;
 var Wife = 4;
-var BeerDays = 0;
+var WifeHistory = [4];
 
 var PlayerSpawnPointX = 0;
 var WorkedToday = false;
 var ShoppedToday = false;
 var YesterdayHadNoMoney = false;
+var HardCore = false;
+var LastBill = [];
 
 func end_day():
+	if len($"/root/Globals".Bill)==0:
+		$"/root/Quester/Control/AnimationPlayer/Spinner/AnimatedSprite2".frame = 2;
 	Bill += [-3, "Rent"]
-	if len($"/root/Globals".Bill)==0 and not $"/root/Globals".WorkedToday:
-		$"/root/Quester/Control/AnimationPlayer/Spinner/AnimatedSprite3".frame = 2;
 func clear_day():
-	for i in $"/root/Globals".Bill:
-		$"/root/Globals".Money += i[0];
 	$"/root/Globals".Bill = []
 	$"/root/Globals".Beard += 1;
 	
-	if Beer and not Food:
-		BeerDays += 1;
-	if BeerDays >= 5:
-		get_tree().change_scene("res://Endings/END_L8p.tscn");
+	if HardCore:
+		if Bill == LastBill:
+			get_tree().change_scene("res://Endings/END_L8p.tscn");
+		else:
+			LastBill = Bill;
+	if len(WifeHistory) > 0 and Wife == WifeHistory[0]:
+		if len(WifeHistory) >= 3:
+			get_tree().change_scene("res://Endings/END_L8p.tscn");
+		else:
+			WifeHistory.append(Wife);
+	else:
+		WifeHistory.clear();
+		WifeHistory.append(Wife);
+		
 	if Wife <= 0:
 		get_tree().change_scene("res://Endings/END_Divorce.tscn");
 	if Wife >= 7:
@@ -36,6 +46,8 @@ func clear_day():
 		get_tree().change_scene("res://Endings/END_Street.tscn")
 	elif Money <= 0:
 		YesterdayHadNoMoney = true;
+		Wife -= 1;
+		Money = 0;
 	else:
 		YesterdayHadNoMoney = false;
 	Food = false;
