@@ -1,0 +1,32 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://textures/icons/w.png" type="Texture" id=3]
+[ext_resource path="res://fonts/Minimal5x7S36.tres" type="DynamicFont" id=4]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 3.67976, 8.97364 )
+
+[node name="Kitchen" type="Node2D"]
+
+[node name="WLabel" type="Sprite" parent="."]
+position = Vector2( 287.519, 368.461 )
+scale = Vector2( 4, 4 )
+texture = ExtResource( 3 )
+
+[node name="Label" type="Label" parent="."]
+margin_left = 224.369
+margin_top = 320.524
+margin_right = 479.369
+margin_bottom = 370.524
+custom_fonts/font = ExtResource( 4 )
+text = "Cook dinner"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2( 281.587, 500.531 )
+scale = Vector2( 30, 10 )
+shape = SubResource( 1 )

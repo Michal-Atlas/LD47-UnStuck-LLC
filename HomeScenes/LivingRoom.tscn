@@ -1,16 +1,18 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://prefabs/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://prefabs/Door_Side.tscn" type="PackedScene" id=2]
-[ext_resource path="res://textures/sprites/Home/Living_room_tv_off.png" type="Texture" id=3]
+[ext_resource path="res://HomeScenes/Couch.tscn" type="PackedScene" id=3]
 [ext_resource path="res://prefabs/Waifu.tscn" type="PackedScene" id=4]
+[ext_resource path="res://HomeScenes/Kitchen.gd" type="Script" id=5]
+[ext_resource path="res://HomeScenes/Kitchen.tscn" type="PackedScene" id=6]
 
 [node name="Node2D" type="Node2D"]
 
-[node name="Sprite" type="Sprite" parent="."]
-position = Vector2( 807.644, 299.327 )
-scale = Vector2( 4.31895, 4.31895 )
-texture = ExtResource( 3 )
+[node name="Couch" parent="." instance=ExtResource( 3 )]
+
+[node name="Kitchen" parent="." instance=ExtResource( 6 )]
+script = ExtResource( 5 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 128, 512 )
