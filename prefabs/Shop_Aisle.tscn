@@ -4,9 +4,10 @@
 [ext_resource path="res://textures/sprites/shop/cashier_idle2.png" type="Texture" id=2]
 [ext_resource path="res://textures/sprites/shop/cashier_idle1.png" type="Texture" id=3]
 [ext_resource path="res://textures/sprites/shop/kasa.png" type="Texture" id=4]
-[ext_resource path="res://prefabs/Cashier.gd" type="Script" id=5]
+[ext_resource path="res://scripts/Cashier.gd" type="Script" id=5]
 [ext_resource path="res://textures/sprites/shop/kasa2.png" type="Texture" id=6]
 [ext_resource path="res://textures/sprites/shop/kasa3.png" type="Texture" id=7]
+
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {

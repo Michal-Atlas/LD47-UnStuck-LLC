@@ -28,6 +28,7 @@ func _input(event):
 		$\"/root/Globals\".Money -= 4;
 		$\"/root/Globals\".Bill += [-4, \"Food\"];
 		$\"/root/Globals\".Food = true;
+		$\"/root/Globals\".ShoppedToday = true;
 
 "
 

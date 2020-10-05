@@ -40,6 +40,7 @@ func _input(event):
 		$\"/root/Globals\".Money -= 6;
 		$\"/root/Globals\".Bill += [-6, \"Beer\"];
 		$\"/root/Globals\".Beer = true;
+		$\"/root/Globals\".ShoppedToday = true;
 
 func _process(delta):
 	if player in get_overlapping_bodies() && $Beer.visible:
