@@ -23,8 +23,8 @@ func cash_out(length):
 		cash = 6
 	
 	#print("Cash ",cash)
-	#$"/root/Globals".Money += cash
-	#Bill.append(cash,"Work")
+	$"/root/Globals".Money += cash
+	$"/root/Globals".Bill.append([cash,"Work"])
 
 func game_on():			
 	if recording:

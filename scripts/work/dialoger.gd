@@ -23,7 +23,7 @@ func _on_dialog_timer_timeout():
 	$textbox.visible = false;
 
 func _on_boss_dialog_timer_timeout():
-	if boss_line < len(boss_dialogs)-1:
+	if boss_line < len(boss_dialogs):
 		if $"/root/Globals".Time == 0:
 			if !paused:
 				if boss_line == 0:
