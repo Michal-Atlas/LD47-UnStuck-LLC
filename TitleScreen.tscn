@@ -47,6 +47,9 @@ func _pressed():
 [sub_resource type="GDScript" id=5]
 script/source = "extends Button
 
+func _ready():
+	disabled = not $\"/root/Globals\".HardCoreUnlocked;
+
 func _pressed():
 	$\"/root/Globals\".HardCore = true;
 	get_tree().change_scene(\"res://HomeScenes/Bedroom.tscn\");
@@ -65,13 +68,13 @@ texture = ExtResource( 5 )
 position = Vector2( 862, 448 )
 scale = Vector2( 4.34, 4.34 )
 frames = SubResource( 2 )
+frame = 3
 playing = true
 
 [node name="AnimatedSprite2" type="AnimatedSprite" parent="."]
 position = Vector2( 160.59, 442.5 )
 scale = Vector2( 4.34, 4.34 )
 frames = SubResource( 3 )
-frame = 1
 playing = true
 flip_h = true
 
