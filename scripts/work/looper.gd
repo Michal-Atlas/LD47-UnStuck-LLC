@@ -17,7 +17,8 @@ func generate_new_loop():
 	else:
 		var loop = []
 		var chord = rng.randi_range(3,5)
-		for i in range(rng.randi_range(10,12)):
+		var diff = 20 if $"/root/Globals".HardCore else 10
+		for i in range(rng.randi_range(diff,diff+2)):
 			if chord <=2:
 				var moves = [0,1,1,1,2]
 				var step = moves[rng.randi_range(0,4)]

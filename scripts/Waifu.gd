@@ -11,7 +11,7 @@ var evening_dialogs = [
 	["Welcome back home TP!","Welcome home!","Good evening!"],#4
 	["Welcome back home TP! How was work?", "Welcome back home TP! How was your day?", "Good evening TP! How was the day?" ],#5
 	["Good evening TP, did everything go well today?","Welcome back home! Are you feeling well? How was your day?","I'm going to bed early tonight, love you darling."],#6
-	["Good evening darling, how was your day?","Good evening darling, thank you so muc for yesterday, dinner was amazing!","Welcome back home darling, everything alright in work today?"],#7
+	["Good evening darling, how was your day?","Good evening darling, thank you so much for yesterday, dinner was amazing!","Welcome back home darling, everything alright in work today?"],#7
 ]
 
 var morning_dialogs_good = ["Good morning! Getting ready to go to work?",

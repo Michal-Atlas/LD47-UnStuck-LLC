@@ -48,14 +48,15 @@ func cash_out(length):
 	$"/root/Globals".Money += cash
 	$"/root/Globals".Bill.append([cash,"Work"])
 
-func game_on():			
+func game_on():
 	if recording:
 		rec_length += 1
 		
-	if rec_length - goal >= 5:
-		recording = false
-		self.cash_out(rec_length)
-		emit_signal("recording_off")
+	if recording:
+		if rec_length - goal >= 5:
+			recording = false
+			self.cash_out(rec_length)
+			emit_signal("recording_off")
 		
 func _on_Timer_timeout():
 	self.game_on()

@@ -32,6 +32,10 @@ func _ready():
 	$\"/root/Globals\".HardCore = false;
 	$\"/root/Globals\".LastBill = [];
 	
+	$\"/root/Quester/Control/AnimationPlayer/Spinner/AnimatedSprite\".frame = 0;
+	$\"/root/Quester/Control/AnimationPlayer/Spinner/AnimatedSprite2\".frame = 2;
+	$\"/root/Quester/Control/AnimationPlayer/Spinner/AnimatedSprite3\".frame = 1;
+	
 func _exit_tree():
 	$\"/root/Quester\".show();
 	$\"/root/Quester\".set_to(1);
@@ -59,6 +63,7 @@ script/source = "extends Button
 
 func _pressed():
 	$\"/root/Globals\".HardCore = false;
+	$\"/root/Music\".pitch_scale = 1;
 	get_tree().change_scene(\"res://HomeScenes/Bedroom.tscn\");
 
 func _input(_event):
@@ -74,6 +79,7 @@ func _ready():
 
 func _pressed():
 	$\"/root/Globals\".HardCore = true;
+	$\"/root/Music\".pitch_scale = 0.6;
 	get_tree().change_scene(\"res://HomeScenes/Bedroom.tscn\");
 "
 
@@ -90,13 +96,13 @@ texture = ExtResource( 5 )
 position = Vector2( 862, 448 )
 scale = Vector2( 4.34, 4.34 )
 frames = SubResource( 2 )
-frame = 3
 playing = true
 
 [node name="AnimatedSprite2" type="AnimatedSprite" parent="."]
 position = Vector2( 160.59, 442.5 )
 scale = Vector2( 4.34, 4.34 )
 frames = SubResource( 3 )
+frame = 1
 playing = true
 flip_h = true
 

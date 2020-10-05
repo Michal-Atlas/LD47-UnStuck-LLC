@@ -1,7 +1,9 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://fonts/Minimal5x7SBill.tres" type="DynamicFont" id=1]
 [ext_resource path="res://audio/died.ogg" type="AudioStream" id=2]
+[ext_resource path="res://textures/sprites/Endings/Looped.png" type="Texture" id=3]
+[ext_resource path="res://fonts/Minimal5x5S32.tres" type="DynamicFont" id=4]
 
 [sub_resource type="GDScript" id=1]
 script/source = "extends Node2D
@@ -43,15 +45,24 @@ tracks/0/keys = {
 [node name="Ending" type="Node2D"]
 script = SubResource( 1 )
 
+[node name="ColorRect2" type="ColorRect" parent="."]
+margin_right = 1024.0
+margin_bottom = 640.0
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="Sprite" type="Sprite" parent="."]
-position = Vector2( 512, 301 )
-scale = Vector2( 4.304, 4.304 )
+position = Vector2( 512, 256 )
+scale = Vector2( 2.40054, 2.28671 )
+texture = ExtResource( 3 )
 
 [node name="ColorRect" type="ColorRect" parent="."]
 margin_left = 64.0
-margin_top = 64.0
+margin_top = 448.0
 margin_right = 960.0
-margin_bottom = 448.0
+margin_bottom = 576.0
 color = Color( 0, 0, 0, 0.470588 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -82,9 +93,21 @@ autoplay = true
 anims/FadeIn = SubResource( 2 )
 
 [node name="ColorRect" type="ColorRect" parent="AnimationPlayer"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="."]
+margin_left = 609.452
+margin_top = 13.0397
+margin_right = 1017.45
+margin_bottom = 41.0397
+custom_fonts/font = ExtResource( 4 )
+text = "Press W to continue"
 __meta__ = {
 "_edit_use_anchors_": false
 }

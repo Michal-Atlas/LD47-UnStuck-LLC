@@ -11,7 +11,7 @@ func _input(event):
 			$"/root/Globals".PlayerSpawnPointX = TargetCoords;
 			get_tree().change_scene(NewScenePath);
 			
-func _process(delta):
+func _process(_delta):
 	if Enabled:
 		if player in $".".get_overlapping_bodies():
 			$ButtonLabel.visible = true;

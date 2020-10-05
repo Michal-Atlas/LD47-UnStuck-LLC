@@ -15,6 +15,8 @@ func show_bill():
 			push_color(Color(1,0,0,1));
 		elif (item[0] > 0):
 			push_color(Color(0,1,0,1));
+		else:
+			push_color(Color(1,1,1,1));
 		push_align(RichTextLabel.ALIGN_RIGHT);
 		add_text(str(item[0])+"$");
 		pop();
