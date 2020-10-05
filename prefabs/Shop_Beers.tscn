@@ -38,7 +38,7 @@ func _input(event):
 	if $WLabel.visible && Input.is_action_just_pressed(\"ui_up\"):
 		$Beer.visible = false;
 		$\"/root/Globals\".Money -= 3;
-		$\"/root/Globals\".Bill += [-3, \"Beer\"];
+		$\"/root/Globals\".Bill.append([-3, \"Beer\"]);
 		$\"/root/Globals\".Beer = true;
 		$\"/root/Globals\".ShoppedToday = true;
 

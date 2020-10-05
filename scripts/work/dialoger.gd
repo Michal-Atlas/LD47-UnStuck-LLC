@@ -12,7 +12,8 @@ var boss_dialogs = [
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	_on_boss_dialog_timer_timeout(); # Replace with function body.
+	if not $"/root/Globals".WorkedToday:
+		_on_boss_dialog_timer_timeout(); # Replace with function body.
 
 func cowsay(msg):
 	$textbox/dialog.text = msg;

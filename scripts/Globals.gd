@@ -2,7 +2,7 @@ extends Node
 
 var Time = 0;
 var Money = 5;
-var Bill = [];
+var Bill = [[-3, "Rent"]];
 var Beard = 2;
 var Beer = false;
 var Food = false;
@@ -22,12 +22,11 @@ func end_day():
 		$"/root/Quester/Control/AnimationPlayer/Spinner/AnimatedSprite2".frame = 2;
 	if Food and not Beer:
 		$"/root/Quester/Control/AnimationPlayer/Spinner/AnimatedSprite3".frame = 4;
-	Bill += [-3, "Rent"]
+	
 func clear_day():
-	$"/root/Globals".Bill = []
-	$"/root/Globals".Beard += 1;
 	
 	if YesterdayHadNoMoney and Money <= 0:
+		print("A" + str(YesterdayHadNoMoney))
 		get_tree().change_scene("res://Endings/END_Street.tscn")
 	elif Money <= 0:
 		YesterdayHadNoMoney = true;
@@ -60,3 +59,8 @@ func clear_day():
 	WorkedToday = false;
 	ShoppedToday = false;
 	Time += 1;
+	
+	$"/root/Globals".Bill = [];
+	Bill.append([-3, "Rent"]);
+	Money -= 3;
+	$"/root/Globals".Beard += 1;

@@ -8,7 +8,8 @@ func _ready():
 
 func _input(event):
 	if Input.is_action_just_pressed("ui_up") && player in $"Area2D".get_overlapping_bodies() && $"/root/Globals".Beer == true:
-		$"/root/Globals".Beer = false
+		$"/root/Globals".Beer = false;
+		$"/root/Quester".set_to(0);
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):

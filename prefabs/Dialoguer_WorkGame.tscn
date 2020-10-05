@@ -18,7 +18,6 @@ visible = false
 margin_left = -200.0
 margin_top = -256.0
 margin_right = 200.0
-margin_bottom = -64.0
 color = Color( 0, 0, 0, 0.627451 )
 __meta__ = {
 "_edit_use_anchors_": false

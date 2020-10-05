@@ -27,7 +27,7 @@ scale = Vector2( 3.5, 3.5 )
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 current = true
-limit_left = 0
+limit_left = 10
 limit_top = 0
 limit_right = 2304
 limit_bottom = 600

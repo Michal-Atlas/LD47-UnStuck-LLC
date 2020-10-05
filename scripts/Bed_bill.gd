@@ -3,7 +3,7 @@ extends RichTextLabel
 func show_bill():
 	clear();
 	append_bbcode("[shake rate=5 level=5]");
-	add_text("Day "+str($"/root/Globals".Time));
+	add_text("Day "+str($"/root/Globals".Time+1));
 	newline()
 	newline()
 	add_text("Your Bill:");

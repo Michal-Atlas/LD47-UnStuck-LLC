@@ -5,11 +5,11 @@
 [sub_resource type="GDScript" id=1]
 script/source = "extends Node2D
 
-var anims = [\"def0\", \"def1\", \"def2\", \"def3\"]
+var anims = [\"def0\", \"def1\", \"def2\"]
 
 func _ready():
 	randomize();
-	$AnimatedSprite.animation = anims[randi()%4];
+	$AnimatedSprite.animation = anims[randi()%len(anims)];
 	position.x = randi()%896-640;
 	$AnimatedSprite.flip_h = true if randi()%3==1 else false;
 "
@@ -21,6 +21,6 @@ script = SubResource( 1 )
 position = Vector2( 1.90735e-06, -1.90735e-06 )
 scale = Vector2( 2, 2 )
 frames = ExtResource( 1 )
-animation = "def0"
+animation = "def2"
 frame = 1
 playing = true
