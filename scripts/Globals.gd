@@ -11,6 +11,7 @@ var BeerDays = 0;
 
 var PlayerSpawnPointX = 0;
 var WorkedToday = false;
+var ShoppedToday = false;
 
 func end_day():
 	if len($"/root/Globals".Bill)==0 and not $"/root/Globals".WorkedToday:

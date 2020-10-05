@@ -1,0 +1,66 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://fonts/Minimal5x7SBill.tres" type="DynamicFont" id=1]
+[ext_resource path="res://textures/bill.png" type="Texture" id=2]
+[ext_resource path="res://scripts/Bed_bill.gd" type="Script" id=3]
+
+[sub_resource type="Animation" id=1]
+resource_name = "Bill_flyin"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Control/Bill:rect_position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( -2, -2 ),
+"update": 0,
+"values": [ Vector2( 420, 640 ), Vector2( 420, 64 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Control/Sprite:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( -2, -2 ),
+"update": 0,
+"values": [ Vector2( 512, 896 ), Vector2( 512, 320 ) ]
+}
+
+[sub_resource type="GDScript" id=2]
+script/source = "extends AnimationPlayer
+
+func _ready():
+	$Bill.show_bill();
+"
+
+[node name="Control" type="AnimationPlayer"]
+anims/Bill_flyin = SubResource( 1 )
+script = SubResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 512, 896 )
+scale = Vector2( 3.77, 3.77 )
+texture = ExtResource( 2 )
+
+[node name="Bill" type="RichTextLabel" parent="."]
+margin_left = 420.0
+margin_top = 640.0
+margin_right = 804.0
+margin_bottom = 1088.0
+custom_fonts/normal_font = ExtResource( 1 )
+bbcode_enabled = true
+bbcode_text = "Your Bill:
+
+- 5$"
+text = "Your Bill:
+
+- 5$"
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}

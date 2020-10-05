@@ -1,43 +1,13 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://prefabs/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://textures/icons/w.png" type="Texture" id=2]
-[ext_resource path="res://textures/bill.png" type="Texture" id=3]
-[ext_resource path="res://scripts/Bed_bill.gd" type="Script" id=4]
 [ext_resource path="res://scripts/Bed_trigger.gd" type="Script" id=5]
-[ext_resource path="res://fonts/Minimal5x7S80.tres" type="DynamicFont" id=6]
 [ext_resource path="res://textures/sprites/Home/Bedroom.png" type="Texture" id=7]
 [ext_resource path="res://prefabs/Door.tscn" type="PackedScene" id=8]
 
-[sub_resource type="Animation" id=1]
-resource_name = "Bill_flyin"
-tracks/0/type = "value"
-tracks/0/path = NodePath("Control/Bill:rect_position")
-tracks/0/interp = 2
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 1 ),
-"transitions": PoolRealArray( -2, -2 ),
-"update": 0,
-"values": [ Vector2( 420, 640 ), Vector2( 420, 64 ) ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("Control/Sprite:position")
-tracks/1/interp = 2
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0, 1 ),
-"transitions": PoolRealArray( -2, -2 ),
-"update": 0,
-"values": [ Vector2( 512, 896 ), Vector2( 512, 320 ) ]
-}
-
-[sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 202.927, 64 )
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 113.932, 64 )
 
 [node name="Node2D" type="Node2D"]
 
@@ -45,32 +15,6 @@ extents = Vector2( 202.927, 64 )
 position = Vector2( 490.176, 296.87 )
 scale = Vector2( 4.32672, 4.32672 )
 texture = ExtResource( 7 )
-
-[node name="Control" type="AnimationPlayer" parent="."]
-anims/Bill_flyin = SubResource( 1 )
-
-[node name="Sprite" type="Sprite" parent="Control"]
-position = Vector2( 512, 896 )
-scale = Vector2( 3.77, 3.77 )
-texture = ExtResource( 3 )
-
-[node name="Bill" type="RichTextLabel" parent="Control"]
-margin_left = 420.0
-margin_top = 640.0
-margin_right = 804.0
-margin_bottom = 1088.0
-custom_fonts/normal_font = ExtResource( 6 )
-bbcode_enabled = true
-bbcode_text = "Your Bill:
-
-- 5$"
-text = "Your Bill:
-
-- 5$"
-script = ExtResource( 4 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 306.939, 497.167 )
@@ -81,7 +25,8 @@ position = Vector2( 627.244, 486.573 )
 script = ExtResource( 5 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-shape = SubResource( 2 )
+position = Vector2( 63.5679, 2.11896 )
+shape = SubResource( 1 )
 
 [node name="ButtonLabel" type="Sprite" parent="Area2D"]
 visible = false

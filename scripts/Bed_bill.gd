@@ -2,8 +2,11 @@ extends RichTextLabel
 
 func show_bill():
 	clear();
-	append_bbcode("[shake rate=5 level=10]");
-	add_text("Your Bill (Day "+str($"/root/Globals".Time)+"):");
+	append_bbcode("[shake rate=5 level=5]");
+	add_text("Day "+str($"/root/Globals".Time));
+	newline()
+	newline()
+	add_text("Your Bill:");
 	newline();
 	push_table(2);
 	for item in $"/root/Globals".Bill:
