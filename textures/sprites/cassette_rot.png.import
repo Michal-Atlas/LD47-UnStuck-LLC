@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/0003.png-cfff6688d90731317efd74b40a3e01dd.stex"
+path="res://.import/cassette_rot.png-bdc0e12503806c530c2f45f67277ce18.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://textures/sprites/House/0003.png"
-dest_files=[ "res://.import/0003.png-cfff6688d90731317efd74b40a3e01dd.stex" ]
+source_file="res://textures/sprites/cassette_rot.png"
+dest_files=[ "res://.import/cassette_rot.png-bdc0e12503806c530c2f45f67277ce18.stex" ]
 
 [params]
 
