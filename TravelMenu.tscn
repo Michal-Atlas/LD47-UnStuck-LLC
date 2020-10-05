@@ -29,6 +29,9 @@ func _exit_tree():
 [sub_resource type="GDScript" id=2]
 script/source = "extends Button
 
+func _ready():
+	if $\"/root/Globals\".WorkedToday:
+		disabled = true;
 
 func _pressed():
 	get_tree().change_scene(\"res://Work.tscn\");
@@ -46,6 +49,9 @@ func _pressed():
 [sub_resource type="GDScript" id=4]
 script/source = "extends Button
 
+func _ready():
+	if $\"/root/Globals\".ShoppedToday:
+		disabled = true;
 
 func _pressed():
 	get_tree().change_scene(\"res://Shop.tscn\");
@@ -129,6 +135,7 @@ position = Vector2( 258, 571 )
 scale = Vector2( 0.5, 0.5 )
 frames = ExtResource( 6 )
 animation = "idle"
+frame = 1
 playing = true
 flip_h = true
 __meta__ = {
@@ -139,6 +146,7 @@ __meta__ = {
 position = Vector2( -3.00783, 16.8604 )
 scale = Vector2( 2.49795, 2.41421 )
 frames = SubResource( 5 )
+frame = 1
 playing = true
 flip_h = true
 
