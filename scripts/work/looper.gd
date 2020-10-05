@@ -12,7 +12,7 @@ func _ready():
 
 func generate_new_loop():
 	if $"/root/Globals".Time == 0:
-		var loop = [2,2,3,3,4,4,5,5,5,4,4,3]
+		var loop = [2,2,3,3,4,4,5,5,5,4,4,3,3]
 		return(loop)
 	else:
 		var loop = []
