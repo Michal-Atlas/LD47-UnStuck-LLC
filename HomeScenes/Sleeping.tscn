@@ -17,6 +17,8 @@ func _exit_tree():
 
 
 func _on_AnimationPlayer_animation_finished(anim_name):
+	$\"/root/Globals\".clear_day();
+	$\"/root/Quester\".set_to(1);
 	get_tree().change_scene(\"res://HomeScenes/Bedroom.tscn\"); # Replace with function body.
 "
 
