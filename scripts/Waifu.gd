@@ -4,7 +4,7 @@ extends Node2D
 var rng = RandomNumberGenerator.new()
 onready var player = get_tree().get_nodes_in_group("Player")[0];
 var evening_dialogs = [
-	[""],#0 empty
+	["","","","*avoids eye contact*"],#0 empty
 	["..."],#1
 	["Planing on drinking again?","As usual?...","Here we go again...","We can't have beer for dinner...","I'm done "],#2
 	["Evening...","Could you do the shopping tommorow?","Maybe you could take care of dinner for once."],#3
@@ -47,4 +47,6 @@ func _on_Timer_timeout():
 	
 func _process(delta):
 	$AnimatedSprite.flip_h = true if player.position.x > position.x else false;
+	if $"/root/Globals".Wife == 0:
+		$AnimatedSprite.flip_h = !$AnimatedSprite.flip_h;
 	
