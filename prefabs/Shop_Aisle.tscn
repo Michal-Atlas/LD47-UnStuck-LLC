@@ -1,9 +1,12 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://prefabs/Shop_Shelf.tscn" type="PackedScene" id=1]
 [ext_resource path="res://textures/sprites/shop/cashier_idle2.png" type="Texture" id=2]
 [ext_resource path="res://textures/sprites/shop/cashier_idle1.png" type="Texture" id=3]
 [ext_resource path="res://textures/sprites/shop/kasa.png" type="Texture" id=4]
+[ext_resource path="res://prefabs/Cashier.gd" type="Script" id=5]
+[ext_resource path="res://textures/sprites/shop/kasa2.png" type="Texture" id=6]
+[ext_resource path="res://textures/sprites/shop/kasa3.png" type="Texture" id=7]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -16,10 +19,20 @@ animations = [ {
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 166.643, 64 )
 
+[sub_resource type="SpriteFrames" id=3]
+animations = [ {
+"frames": [ ExtResource( 4 ), ExtResource( 6 ), ExtResource( 7 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
 [node name="Aisle" type="Node2D"]
 
 [node name="Cashier" type="Area2D" parent="."]
-position = Vector2( 576, 512 )
+position = Vector2( 591.977, 491.819 )
+scale = Vector2( 1.2, 1.2 )
+script = ExtResource( 5 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Cashier"]
 position = Vector2( 32, -12 )
@@ -27,13 +40,14 @@ scale = Vector2( 1.78, 1.78 )
 frames = SubResource( 1 )
 playing = true
 
-[node name="Sprite" type="Sprite" parent="Cashier"]
-scale = Vector2( 2, 2 )
-texture = ExtResource( 4 )
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Cashier"]
 position = Vector2( 6.60712, 25.4846 )
 shape = SubResource( 2 )
+
+[node name="AnimatedSprite2" type="AnimatedSprite" parent="Cashier"]
+position = Vector2( 0.110321, 3.59415 )
+scale = Vector2( 1.9, 1.9 )
+frames = SubResource( 3 )
 
 [node name="Shelves" type="Node2D" parent="."]
 
@@ -41,13 +55,10 @@ shape = SubResource( 2 )
 position = Vector2( 200, 600 )
 
 [node name="Shop_Shelf2" parent="Shelves" instance=ExtResource( 1 )]
-position = Vector2( 0, 600 )
+position = Vector2( -50, 600 )
 
 [node name="Shop_Shelf3" parent="Shelves" instance=ExtResource( 1 )]
-position = Vector2( -200, 600 )
+position = Vector2( -300, 600 )
 
 [node name="Shop_Shelf4" parent="Shelves" instance=ExtResource( 1 )]
-position = Vector2( -400, 600 )
-
-[node name="Shop_Shelf5" parent="Shelves" instance=ExtResource( 1 )]
-position = Vector2( -600, 600 )
+position = Vector2( -550, 600 )
