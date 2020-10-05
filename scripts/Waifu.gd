@@ -4,7 +4,7 @@ extends Node2D
 var rng = RandomNumberGenerator.new()
 onready var player = get_tree().get_nodes_in_group("Player")[0];
 var evening_dialogs = [
-	[],#0 empty
+	[""],#0 empty
 	["..."],#1
 	["Planing on drinking again?","As usual?...","Here we go again...","We can't have beer for dinner...","I'm done "],#2
 	["Evening...","Could you do the shopping tommorow?","Maybe you could take care of dinner for once."],#3

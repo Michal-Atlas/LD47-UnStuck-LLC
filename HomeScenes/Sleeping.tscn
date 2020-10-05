@@ -44,7 +44,7 @@ script = SubResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 490.176, 296.87 )
-scale = Vector2( 4.327, 4.327 )
+scale = Vector2( 2.2, 2.2 )
 texture = ExtResource( 1 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]

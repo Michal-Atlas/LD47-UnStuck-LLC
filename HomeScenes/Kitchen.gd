@@ -8,6 +8,8 @@ func _ready():
 
 func _input(event):
 	if Input.is_action_just_pressed("ui_up") && player in $"Area2D".get_overlapping_bodies() && $"/root/Globals".Food == true:
+		if $"/root/Globals".Food and not $"/root/Globals".Beer:
+			$"/root/Quester/Control/AnimationPlayer/Spinner/AnimatedSprite3".frame = 4;
 		$"/root/Globals".Food = false
 		$"/root/Globals".Wife += 1
 
