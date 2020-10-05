@@ -24,11 +24,21 @@ func clear_day():
 	$"/root/Globals".Bill = []
 	$"/root/Globals".Beard += 1;
 	
+	if YesterdayHadNoMoney and Money <= 0:
+		get_tree().change_scene("res://Endings/END_Street.tscn")
+	elif Money <= 0:
+		YesterdayHadNoMoney = true;
+		Wife -= 1;
+		Money = 0;
+	else:
+		YesterdayHadNoMoney = false;
+		
 	if HardCore:
 		if Bill == LastBill:
 			get_tree().change_scene("res://Endings/END_L8p.tscn");
 		else:
 			LastBill = Bill;
+			
 	if len(WifeHistory) > 0 and Wife == WifeHistory[0]:
 		if len(WifeHistory) >= 3:
 			get_tree().change_scene("res://Endings/END_L8p.tscn");
@@ -42,14 +52,6 @@ func clear_day():
 		get_tree().change_scene("res://Endings/END_Divorce.tscn");
 	if Wife >= 7:
 		get_tree().change_scene("res://Endings/END_Happy.tscn");
-	if YesterdayHadNoMoney and Money <= 0:
-		get_tree().change_scene("res://Endings/END_Street.tscn")
-	elif Money <= 0:
-		YesterdayHadNoMoney = true;
-		Wife -= 1;
-		Money = 0;
-	else:
-		YesterdayHadNoMoney = false;
 	Food = false;
 	Beer = false;
 	WorkedToday = false;
