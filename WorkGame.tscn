@@ -20,14 +20,14 @@
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
-"frames": [ ExtResource( 11 ), ExtResource( 12 ) ],
-"loop": true,
-"name": "def0",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 10 ), ExtResource( 17 ) ],
 "loop": true,
 "name": "def1",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 11 ), ExtResource( 12 ) ],
+"loop": true,
+"name": "def0",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 16 ), ExtResource( 15 ) ],
@@ -61,18 +61,19 @@ position = Vector2( 555, 314 )
 scale = Vector2( 2.35741, 2.35741 )
 texture = ExtResource( 7 )
 
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+position = Vector2( 881.024, 261.938 )
+scale = Vector2( 7.0025, 7.0025 )
+frames = SubResource( 1 )
+animation = "def0"
+frame = 1
+playing = true
+script = SubResource( 2 )
+
 [node name="workdesk" type="Sprite" parent="."]
 position = Vector2( 450, 341 )
 scale = Vector2( 2.02778, 2.02778 )
 texture = ExtResource( 3 )
-
-[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
-position = Vector2( 832, 192 )
-scale = Vector2( 4.09, 4.09 )
-frames = SubResource( 1 )
-animation = "def0"
-playing = true
-script = SubResource( 2 )
 
 [node name="looper" type="Node2D" parent="."]
 script = ExtResource( 9 )
@@ -132,6 +133,6 @@ position = Vector2( 256, 320 )
 [connection signal="recording_off" from="gamer" to="audio" method="_on_gamer_recording_off"]
 [connection signal="recording_on" from="gamer" to="drawer" method="_on_gamer_recording_on"]
 [connection signal="timeout" from="gamer/Transition_Timer" to="gamer" method="_on_Transition_Timer_timeout"]
-[connection signal="timeout" from="Timer" to="gamer" method="_on_Timer_timeout"]
 [connection signal="timeout" from="Timer" to="drawer" method="_on_Timer_timeout"]
 [connection signal="timeout" from="Timer" to="audio" method="_on_Timer_timeout"]
+[connection signal="timeout" from="Timer" to="gamer" method="_on_Timer_timeout"]
