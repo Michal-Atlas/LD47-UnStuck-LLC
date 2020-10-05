@@ -61,7 +61,7 @@ func _on_Timer_timeout():
 	self.game_on()
 	
 func _process(delta):
-	if Input.is_action_just_pressed("spacebar"):	
+	if Input.is_action_just_pressed("spacebar") and $"../audio".on:	
 		if !recording:
 			recording = true
 			$rec_button.visible = true

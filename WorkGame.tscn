@@ -35,11 +35,6 @@ animations = [ {
 "name": "def1",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 13 ), ExtResource( 14 ) ],
-"loop": true,
-"name": "def3",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 16 ), ExtResource( 15 ) ],
 "loop": true,
 "name": "def2",
@@ -48,6 +43,11 @@ animations = [ {
 "frames": [ ExtResource( 11 ), ExtResource( 12 ) ],
 "loop": true,
 "name": "def0",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 13 ), ExtResource( 14 ) ],
+"loop": true,
+"name": "def3",
 "speed": 5.0
 } ]
 
@@ -144,10 +144,10 @@ one_shot = true
 wait_time = 0.4
 autostart = true
 script = ExtResource( 2 )
-[connection signal="recording_off" from="gamer" to="drawer" method="_on_gamer_recording_off"]
 [connection signal="recording_off" from="gamer" to="audio" method="_on_gamer_recording_off"]
+[connection signal="recording_off" from="gamer" to="drawer" method="_on_gamer_recording_off"]
 [connection signal="recording_on" from="gamer" to="drawer" method="_on_gamer_recording_on"]
 [connection signal="timeout" from="gamer/Transition_Timer" to="gamer" method="_on_Transition_Timer_timeout"]
 [connection signal="timeout" from="Timer" to="gamer" method="_on_Timer_timeout"]
-[connection signal="timeout" from="Timer" to="drawer" method="_on_Timer_timeout"]
 [connection signal="timeout" from="Timer" to="audio" method="_on_Timer_timeout"]
+[connection signal="timeout" from="Timer" to="drawer" method="_on_Timer_timeout"]
