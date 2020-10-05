@@ -5,12 +5,12 @@ var rng = RandomNumberGenerator.new()
 onready var player = get_tree().get_nodes_in_group("Player")[0];
 var evening_dialogs = [
 	[],#0 empty
-	[],#1
-	[],#2
-	[],#3
+	["..."],#1
+	["Planing on drinking again?","As usual?...","Here we go again...","We can't have beer for dinner...","I'm done "],#2
+	["Evening...","Could you do the shopping tommorow?","Maybe you could take care of dinner for once."],#3
 	["Welcome back home TP!","Welcome home!","Good evening!"],#4
 	["Welcome back home TP! How was work?", "Welcome back home TP! How was your day?", "Good evening TP! How was the day?" ],#5
-	["Good evening TP, did everything go well today?"],#6
+	["Good evening TP, did everything go well today?","Welcome back home! Are you feeling well? How was your day?","I'm going to bed early tonight, love you darling."],#6
 	["Good evening darling, how was your day?","Good evening darling, thank you so muc for yesterday, dinner was amazing!","Welcome back home darling, everything alright in work today?"],#7
 ]
 
