@@ -12,6 +12,7 @@ func _input(event):
 			$"/root/Quester/Control/AnimationPlayer/Spinner/AnimatedSprite3".frame = 4;
 		$"/root/Globals".Food = false
 		$"/root/Globals".Wife += 1
+		$"/root/Quester".set_to(0);
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
