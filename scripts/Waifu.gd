@@ -26,11 +26,11 @@ var morning_dialogs_bad = ["Shouldn't you be on your way to work?",
 func _ready():
 	rng.randomize()
 	if $"/root/Globals".WorkedToday or $"/root/Globals".ShoppedToday:
-		cowsay(evening_dialogs[$"/root/Globals".Wife][rng.randi_range(0,len(evening_dialogs[$"/root/Globals".Wife]))]);
+		cowsay(evening_dialogs[$"/root/Globals".Wife][rng.randi_range(0,len(evening_dialogs[$"/root/Globals".Wife])-1)]);
 	elif !$"/root/Globals".WorkedToday and $"/root/Globals".Wife <= 4:
-		cowsay(morning_dialogs_bad[rng.randi_range(0,len(morning_dialogs_bad))])
+		cowsay(morning_dialogs_bad[rng.randi_range(0,len(morning_dialogs_bad)-1)])
 	else:
-		cowsay(morning_dialogs_good[rng.randi_range(0,len(morning_dialogs_good))])
+		cowsay(morning_dialogs_good[rng.randi_range(0,len(morning_dialogs_good)-1)])
 		
 	if $"/root/Globals".Wife < 3:
 		$AnimatedSprite.animation = "angry";
