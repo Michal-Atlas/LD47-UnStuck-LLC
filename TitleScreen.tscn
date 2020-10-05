@@ -16,9 +16,8 @@ script/source = "extends Node2D
 func _ready():
 	$\"/root/Quester\".hide();
 	
-	
 	$\"/root/Globals\".Time = 0;
-	$\"/root/Globals\".Money = 5;
+	$\"/root/Globals\".Money = 2;
 	$\"/root/Globals\".Bill = [[-3, \"Rent\"]];
 	$\"/root/Globals\".Beard = 2;
 	$\"/root/Globals\".Beer = false;
@@ -61,6 +60,10 @@ script/source = "extends Button
 func _pressed():
 	$\"/root/Globals\".HardCore = false;
 	get_tree().change_scene(\"res://HomeScenes/Bedroom.tscn\");
+
+func _input(_event):
+	if Input.is_action_just_pressed(\"spacebar\"):
+		_pressed();
 "
 
 [sub_resource type="GDScript" id=5]
@@ -87,7 +90,7 @@ texture = ExtResource( 5 )
 position = Vector2( 862, 448 )
 scale = Vector2( 4.34, 4.34 )
 frames = SubResource( 2 )
-frame = 1
+frame = 3
 playing = true
 
 [node name="AnimatedSprite2" type="AnimatedSprite" parent="."]
