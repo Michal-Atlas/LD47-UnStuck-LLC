@@ -1,0 +1,90 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://fonts/Minimal5x7SBill.tres" type="DynamicFont" id=1]
+[ext_resource path="res://audio/died.ogg" type="AudioStream" id=2]
+
+[sub_resource type="GDScript" id=1]
+script/source = "extends Node2D
+
+export var img : Texture;
+export var text : String;
+
+func _ready():
+	$Sprite.texture = img;
+	$ColorRect/Label.text = text;
+	$AnimationPlayer.play(\"FadeIn\");
+	$\"/root/Quester\".hide();
+	$\"/root/Music\".volume_db = -500;
+	
+func _input(event):
+	if Input.is_action_just_pressed(\"ui_up\"):
+		get_tree().change_scene(\"res://TitleScreen.tscn\");
+
+func _exit_tree():
+	$\"/root/Music\".volume_db = -20;
+"
+
+[sub_resource type="Animation" id=2]
+resource_name = "FadeIn"
+length = 7.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("AnimationPlayer/ColorRect:color")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 7 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 0 ) ]
+}
+
+[node name="Ending" type="Node2D"]
+script = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 512, 301 )
+scale = Vector2( 4.304, 4.304 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_left = 64.0
+margin_top = 64.0
+margin_right = 960.0
+margin_bottom = 448.0
+color = Color( 0, 0, 0, 0.470588 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="ColorRect"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 14.0
+margin_top = 14.0
+margin_right = -14.0
+margin_bottom = -14.0
+custom_fonts/font = ExtResource( 1 )
+align = 1
+valign = 1
+autowrap = true
+uppercase = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 2 )
+volume_db = -20.0
+autoplay = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/FadeIn = SubResource( 2 )
+
+[node name="ColorRect" type="ColorRect" parent="AnimationPlayer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
