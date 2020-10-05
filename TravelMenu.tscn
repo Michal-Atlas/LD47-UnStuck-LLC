@@ -14,7 +14,7 @@
 [ext_resource path="res://textures/sprites/Buildings/skyscraper3.png" type="Texture" id=12]
 [ext_resource path="res://textures/sprites/Buildings/skyscraper1.png" type="Texture" id=13]
 [ext_resource path="res://scripts/Parallax.gd" type="Script" id=14]
-[ext_resource path="res://textures/sprites/Buildings/sky.png" type="Texture" id=15]
+[ext_resource path="res://menu_selecter.gd" type="Script" id=15]
 
 [sub_resource type="GDScript" id=1]
 script/source = "extends Node2D
@@ -28,44 +28,52 @@ func _exit_tree():
 [sub_resource type="GDScript" id=2]
 script/source = "extends Button
 
-func _ready():
-	if $\"/root/Globals\".WorkedToday:
-		disabled = true;
+func press():
+	_pressed()
 
 func _pressed():
 	get_tree().change_scene(\"res://Work.tscn\");
 
-func _input(_event):
-	if Input.is_action_just_pressed(\"ui_right\"):
-		_pressed();
+func _process(delta):
+	if $\"../menu_selecter\".pos == 1:
+		disabled = false
+	else:
+		disabled = true
 "
 
 [sub_resource type="GDScript" id=3]
 script/source = "extends Button
 
+func press():
+	_pressed()
 
 func _pressed():
 	$\"/root/Globals\".PlayerSpawnPointX = 2100;
 	get_tree().change_scene(\"res://HomeScenes/Hallway.tscn\");
 
-func _input(_event):
-	if Input.is_action_just_pressed(\"ui_up\"):
-		_pressed();
+func _process(delta):
+	if $\"../menu_selecter\".pos == 0:
+		disabled = false
+	else:
+		disabled = true
 "
 
 [sub_resource type="GDScript" id=4]
 script/source = "extends Button
 
-func _ready():
-	if $\"/root/Globals\".ShoppedToday:
-		disabled = true;
+
+func press():
+	_pressed()
 
 func _pressed():
 	get_tree().change_scene(\"res://Shop.tscn\");
 
-func _input(_event):
-	if Input.is_action_just_pressed(\"ui_down\"):
-		_pressed();
+func _process(delta):
+	if $\"../menu_selecter\".pos == 2:
+		disabled = false
+	else:
+		disabled = true
+		
 "
 
 [sub_resource type="SpriteFrames" id=5]
@@ -92,6 +100,7 @@ margin_top = 320.0
 margin_right = 896.0
 margin_bottom = 428.0
 custom_fonts/font = ExtResource( 4 )
+button_mask = 0
 text = "WORK"
 icon = ExtResource( 1 )
 expand_icon = true
@@ -106,6 +115,7 @@ margin_top = 192.0
 margin_right = 896.0
 margin_bottom = 300.0
 custom_fonts/font = ExtResource( 4 )
+button_mask = 0
 text = "HOME"
 icon = ExtResource( 5 )
 expand_icon = true
@@ -120,6 +130,7 @@ margin_top = 448.0
 margin_right = 896.0
 margin_bottom = 556.0
 custom_fonts/font = ExtResource( 4 )
+button_mask = 0
 text = "SHOP"
 icon = ExtResource( 2 )
 expand_icon = true
@@ -141,11 +152,15 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="menu_selecter" type="Node2D" parent="UI"]
+script = ExtResource( 15 )
+
 [node name="AnimatedCassete" type="AnimatedSprite" parent="."]
 position = Vector2( 258, 571 )
 scale = Vector2( 0.5, 0.5 )
 frames = ExtResource( 6 )
 animation = "idle"
+frame = 1
 playing = true
 flip_h = true
 __meta__ = {
@@ -156,6 +171,7 @@ __meta__ = {
 position = Vector2( -3.00783, 16.8604 )
 scale = Vector2( 2.49795, 2.41421 )
 frames = SubResource( 5 )
+frame = 1
 playing = true
 flip_h = true
 
@@ -163,118 +179,21 @@ flip_h = true
 scroll_ignore_camera_zoom = true
 script = ExtResource( 14 )
 
-[node name="ParallaxLayer4" type="ParallaxLayer" parent="ParallaxBackground"]
-motion_scale = Vector2( 0.1, 1 )
-motion_mirroring = Vector2( 1024, 0 )
-
-[node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer4"]
-position = Vector2( 512, 256 )
-scale = Vector2( 2.13333, 2.13333 )
-texture = ExtResource( 15 )
-
 [node name="ParallaxLayer3" type="ParallaxLayer" parent="ParallaxBackground"]
-modulate = Color( 0.105882, 0.105882, 0.105882, 1 )
-position = Vector2( 0, -20 )
-scale = Vector2( 1.2, 1.2 )
 motion_scale = Vector2( 0.4, 1 )
-motion_mirroring = Vector2( 1020, 0 )
+motion_mirroring = Vector2( 2600, 0 )
 
 [node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer3"]
-position = Vector2( 64, 327 )
-scale = Vector2( 1.75, 1.78846 )
-texture = ExtResource( 13 )
-
-[node name="Sprite6" type="Sprite" parent="ParallaxBackground/ParallaxLayer3"]
-position = Vector2( 704, 327 )
-scale = Vector2( 1.75, 1.78846 )
-texture = ExtResource( 13 )
-
-[node name="Sprite2" type="Sprite" parent="ParallaxBackground/ParallaxLayer3"]
-position = Vector2( 192, 341 )
-scale = Vector2( 1.75, 1.78846 )
-texture = ExtResource( 9 )
-
-[node name="Sprite7" type="Sprite" parent="ParallaxBackground/ParallaxLayer3"]
-position = Vector2( 832, 344 )
-scale = Vector2( 1.75, 1.78846 )
-texture = ExtResource( 9 )
-
-[node name="Sprite3" type="Sprite" parent="ParallaxBackground/ParallaxLayer3"]
-position = Vector2( 320, 370 )
-scale = Vector2( 1.75, 1.78846 )
-texture = ExtResource( 12 )
-
-[node name="Sprite4" type="Sprite" parent="ParallaxBackground/ParallaxLayer3"]
-position = Vector2( 448, 356 )
-scale = Vector2( 1.75, 1.78846 )
-texture = ExtResource( 10 )
-
-[node name="Sprite5" type="Sprite" parent="ParallaxBackground/ParallaxLayer3"]
-position = Vector2( 576, 391 )
-scale = Vector2( 1.75, 1.78846 )
-texture = ExtResource( 11 )
-
-[node name="Sprite8" type="Sprite" parent="ParallaxBackground/ParallaxLayer3"]
-position = Vector2( 960, 393 )
-scale = Vector2( 1.75, 1.78846 )
-texture = ExtResource( 11 )
+position = Vector2( 1295.57, 300.25 )
+scale = Vector2( 0.63545, 0.63545 )
 
 [node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
-modulate = Color( 0.0509804, 0.0509804, 0.0509804, 1 )
-position = Vector2( 0, 87 )
-scale = Vector2( 0.8, 1 )
 motion_scale = Vector2( 0.7, 1 )
-motion_mirroring = Vector2( 1360, 0 )
+motion_mirroring = Vector2( 1410, 0 )
 
 [node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer2"]
-position = Vector2( 64, 327 )
-scale = Vector2( 1.75, 1.78846 )
-texture = ExtResource( 13 )
-
-[node name="Sprite6" type="Sprite" parent="ParallaxBackground/ParallaxLayer2"]
-position = Vector2( 704, 327 )
-scale = Vector2( 1.75, 1.78846 )
-texture = ExtResource( 13 )
-
-[node name="Sprite2" type="Sprite" parent="ParallaxBackground/ParallaxLayer2"]
-position = Vector2( 192, 341 )
-scale = Vector2( 1.75, 1.78846 )
-texture = ExtResource( 9 )
-
-[node name="Sprite10" type="Sprite" parent="ParallaxBackground/ParallaxLayer2"]
-position = Vector2( 1280, 361 )
-scale = Vector2( 1.75, 1.78846 )
-texture = ExtResource( 9 )
-
-[node name="Sprite7" type="Sprite" parent="ParallaxBackground/ParallaxLayer2"]
-position = Vector2( 832, 344 )
-scale = Vector2( 1.75, 1.78846 )
-texture = ExtResource( 9 )
-
-[node name="Sprite3" type="Sprite" parent="ParallaxBackground/ParallaxLayer2"]
-position = Vector2( 320, 370 )
-scale = Vector2( 1.75, 1.78846 )
-texture = ExtResource( 12 )
-
-[node name="Sprite9" type="Sprite" parent="ParallaxBackground/ParallaxLayer2"]
-position = Vector2( 1120, 373 )
-scale = Vector2( 1.75, 1.78846 )
-texture = ExtResource( 12 )
-
-[node name="Sprite4" type="Sprite" parent="ParallaxBackground/ParallaxLayer2"]
-position = Vector2( 448, 356 )
-scale = Vector2( 1.75, 1.78846 )
-texture = ExtResource( 10 )
-
-[node name="Sprite5" type="Sprite" parent="ParallaxBackground/ParallaxLayer2"]
-position = Vector2( 576, 391 )
-scale = Vector2( 1.75, 1.78846 )
-texture = ExtResource( 11 )
-
-[node name="Sprite8" type="Sprite" parent="ParallaxBackground/ParallaxLayer2"]
-position = Vector2( 960, 393 )
-scale = Vector2( 1.75, 1.78846 )
-texture = ExtResource( 11 )
+position = Vector2( 700, 526.75 )
+scale = Vector2( 0.343023, 0.0883839 )
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
 position = Vector2( 0, 87 )
