@@ -16,7 +16,6 @@ func _ready():
 
 func finished():
 	var rand_nb = randi() % len(title_tracks);
-	print(rand_nb)
 	var audiostream = load('res://audio/' + title_tracks[rand_nb]+'.ogg');
 	set_stream(audiostream);
 	play();
