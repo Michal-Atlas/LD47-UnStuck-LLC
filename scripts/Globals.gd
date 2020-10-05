@@ -1,22 +1,23 @@
 extends Node
 
 var Time = 0;
-var Money = 0;
-var Bill = [[8,"Work"],[-5,"Beer"], [-3,"Wife"]];
+var Money = 5;
+var Bill = [];
 var Beard = 2;
 var Beer = false;
 var Food = false;
-var Wife = 3;
+var Wife = 4;
 var BeerDays = 0;
 
 var PlayerSpawnPointX = 0;
 var WorkedToday = false;
 var ShoppedToday = false;
+var YesterdayHadNoMoney = false;
 
 func end_day():
+	Bill += [-3, "Rent"]
 	if len($"/root/Globals".Bill)==0 and not $"/root/Globals".WorkedToday:
 		$"/root/Quester/Control/AnimationPlayer/Spinner/AnimatedSprite3".frame = 2;
-	clear_day();
 func clear_day():
 	for i in $"/root/Globals".Bill:
 		$"/root/Globals".Money += i[0];
@@ -29,11 +30,16 @@ func clear_day():
 		get_tree().change_scene("res://Endings/END_L8p.tscn");
 	if Wife <= 0:
 		get_tree().change_scene("res://Endings/END_Divorce.tscn");
-	if Wife >= 5:
+	if Wife >= 7:
 		get_tree().change_scene("res://Endings/END_Happy.tscn");
-	if Money <= 0:
+	if YesterdayHadNoMoney and Money <= 0:
 		get_tree().change_scene("res://Endings/END_Street.tscn")
-	
+	elif Money <= 0:
+		YesterdayHadNoMoney = true;
+	else:
+		YesterdayHadNoMoney = false;
 	Food = false;
 	Beer = false;
+	WorkedToday = false;
+	ShoppedToday = false;
 	Time += 1;
