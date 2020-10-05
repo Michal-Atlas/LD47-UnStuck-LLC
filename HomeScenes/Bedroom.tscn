@@ -13,7 +13,7 @@ extents = Vector2( 113.932, 64 )
 
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 490.176, 296.87 )
-scale = Vector2( 2.2, 2.2 )
+scale = Vector2( 4.32, 4.32 )
 texture = ExtResource( 3 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
