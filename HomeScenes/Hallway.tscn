@@ -41,6 +41,7 @@ scale = Vector2( 2, 2 )
 NewScenePath = "res://HomeScenes/Bedroom.tscn"
 
 [node name="Door_Mid" parent="." instance=ExtResource( 3 )]
+visible = false
 position = Vector2( 1165, 332 )
 scale = Vector2( 2, 2 )
 
