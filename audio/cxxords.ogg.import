@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/cxxords.ogg-a09f24aa86f7e537f2a2b483ca053945.oggstr"
+
+[deps]
+
+source_file="res://audio/cxxords.ogg"
+dest_files=[ "res://.import/cxxords.ogg-a09f24aa86f7e537f2a2b483ca053945.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0
