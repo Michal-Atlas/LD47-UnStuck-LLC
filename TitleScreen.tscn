@@ -15,8 +15,28 @@ script/source = "extends Node2D
 
 func _ready():
 	$\"/root/Quester\".hide();
+	
+	
+	$\"/root/Globals\".Time = 0;
+	$\"/root/Globals\".Money = 5;
+	$\"/root/Globals\".Bill = [[-3, \"Rent\"]];
+	$\"/root/Globals\".Beard = 2;
+	$\"/root/Globals\".Beer = false;
+	$\"/root/Globals\".Food = false;
+	$\"/root/Globals\".Wife = 4;
+	$\"/root/Globals\".WifeHistory = [4];
+
+	$\"/root/Globals\".PlayerSpawnPointX = 0;
+	$\"/root/Globals\".WorkedToday = false;
+	$\"/root/Globals\".ShoppedToday = false;
+	$\"/root/Globals\".YesterdayHadNoMoney = false;
+	$\"/root/Globals\".HardCore = false;
+	$\"/root/Globals\".HardCoreUnlocked = false;
+	$\"/root/Globals\".LastBill = [];
+	
 func _exit_tree():
 	$\"/root/Quester\".show();
+	$\"/root/Quester\".set_to(1);
 "
 
 [sub_resource type="SpriteFrames" id=2]
@@ -68,7 +88,6 @@ texture = ExtResource( 5 )
 position = Vector2( 862, 448 )
 scale = Vector2( 4.34, 4.34 )
 frames = SubResource( 2 )
-frame = 2
 playing = true
 
 [node name="AnimatedSprite2" type="AnimatedSprite" parent="."]
