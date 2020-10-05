@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/0005.png-ca6d6108d429f5449118e0e5b4d54b96.stex"
+path="res://.import/sky.png-f84cb6e5851c43011c2de66df3487fd4.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://textures/sprites/House/0005.png"
-dest_files=[ "res://.import/0005.png-ca6d6108d429f5449118e0e5b4d54b96.stex" ]
+source_file="res://textures/sprites/Buildings/sky.png"
+dest_files=[ "res://.import/sky.png-f84cb6e5851c43011c2de66df3487fd4.stex" ]
 
 [params]
 
@@ -20,7 +20,7 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=true
+flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2
