@@ -19,7 +19,7 @@ config/name="UnStuck-LLC"
 run/main_scene="res://TitleScreen.tscn"
 boot_splash/image="res://textures/sprites/shop/cashier_idle1.png"
 boot_splash/fullsize=false
-config/icon="res://icon.png"
+config/icon="res://textures/icons/icon.png"
 
 [autoload]
 
