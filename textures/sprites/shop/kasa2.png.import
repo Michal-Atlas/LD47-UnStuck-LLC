@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/kasa.png-f5301e7b63a731cc6e09ded6404404f4.stex"
+path="res://.import/kasa2.png-c2d61d7d612ce168d292f670632f0c11.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://textures/sprites/shop/kasa.png"
-dest_files=[ "res://.import/kasa.png-f5301e7b63a731cc6e09ded6404404f4.stex" ]
+source_file="res://textures/sprites/shop/kasa2.png"
+dest_files=[ "res://.import/kasa2.png-c2d61d7d612ce168d292f670632f0c11.stex" ]
 
 [params]
 
