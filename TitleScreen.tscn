@@ -68,13 +68,14 @@ texture = ExtResource( 5 )
 position = Vector2( 862, 448 )
 scale = Vector2( 4.34, 4.34 )
 frames = SubResource( 2 )
-frame = 3
+frame = 2
 playing = true
 
 [node name="AnimatedSprite2" type="AnimatedSprite" parent="."]
 position = Vector2( 160.59, 442.5 )
 scale = Vector2( 4.34, 4.34 )
 frames = SubResource( 3 )
+frame = 1
 playing = true
 flip_h = true
 

@@ -20,6 +20,8 @@ var LastBill = [];
 func end_day():
 	if len($"/root/Globals".Bill)==0:
 		$"/root/Quester/Control/AnimationPlayer/Spinner/AnimatedSprite2".frame = 2;
+	if Food and not Beer:
+		$"/root/Quester/Control/AnimationPlayer/Spinner/AnimatedSprite3".frame = 4;
 	Bill += [-3, "Rent"]
 func clear_day():
 	$"/root/Globals".Bill = []
