@@ -14,6 +14,7 @@ var WorkedToday = false;
 var ShoppedToday = false;
 var YesterdayHadNoMoney = false;
 var HardCore = false;
+var HardCoreUnlocked = false;
 var LastBill = [];
 
 func end_day():
@@ -49,9 +50,9 @@ func clear_day():
 		WifeHistory.append(Wife);
 		
 	if Wife <= 0:
-		get_tree().change_scene("res://Endings/END_Divorce.tscn");
+		get_tree().change_scene("res://Endings/END_Drunk.tscn");
 	if Wife >= 7:
-		get_tree().change_scene("res://Endings/END_Happy.tscn");
+		get_tree().change_scene("res://Endings/END_Wholesome.tscn");
 	Food = false;
 	Beer = false;
 	WorkedToday = false;
