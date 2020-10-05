@@ -26,7 +26,7 @@ func _input(event):
 	if Input.is_action_just_pressed(\"ui_up\") && $WLabel.visible && $AnimatedSprite.frame == 1:
 		$AnimatedSprite.frame = 0;
 		$\"/root/Globals\".Money -= 5;
-		$\"/root/Globals\".Bill += [-5, \"Food\"];
+		$\"/root/Globals\".Bill.append([-5, \"Food\"]);
 		$\"/root/Globals\".Food = true;
 		$\"/root/Globals\".ShoppedToday = true;
 
